@@ -9,7 +9,7 @@ A modern multilingual website template built with Next.js 15, React 19, TypeScri
 
 ## 🛠 Tech Stack
 
-- **Next.js 15.4.8** - React framework with App Router
+- **Next.js 15.5.7** - React framework with App Router
 - **React 19** - Latest React with improved performance
 - **TypeScript** - Type safety
 - **TailwindCSS** - Utility-first CSS framework

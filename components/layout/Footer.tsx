@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { translations, type Locale } from '@/locales'
 
 interface FooterProps {
@@ -24,14 +25,14 @@ export default function Footer({ locale }: FooterProps) {
             <h4 className="font-semibold mb-4">{t.common.language}</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
                   English
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/zh-CN" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="/zh-CN" className="text-gray-300 hover:text-white transition-colors">
                   中文
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -40,14 +41,14 @@ export default function Footer({ locale }: FooterProps) {
             <h4 className="font-semibold mb-4">Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="#" className="text-gray-300 hover:text-white transition-colors">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="#" className="text-gray-300 hover:text-white transition-colors">
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
