@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "title": "Welcome to Our Website",
+    "description": "A modern multilingual website built with Next.js 14"
+  },
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language",
+    "readMore": "Read More",
+    "getStarted": "Get Started"
+  },
+  "navigation": {
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "pages": {
+    "home": {
+      "title": "Hello World",
+      "subtitle": "Welcome to our multilingual Next.js website",
+      "description": "This is a demo website built with Next.js 14, TypeScript, and TailwindCSS. It supports multiple languages and is optimized for SEO.",
+      "cta": "Explore Our Features"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn more about our company and mission."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with our team."
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Our Website. All rights reserved.",
+    "description": "Building amazing multilingual experiences with Next.js"
+  }
+}
