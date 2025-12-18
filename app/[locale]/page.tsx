@@ -2,6 +2,8 @@ import { translations, supportedLocales, type Locale } from '@/locales'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
+export const runtime = 'edge'
+
 interface HomePageProps {
   params: Promise<{ locale: string }>
 }

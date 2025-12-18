@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { translations, supportedLocales, type Locale } from '@/locales'
 import '../globals.css'
 
+export const runtime = 'edge'
+
 interface LocaleLayoutProps {
   children: React.ReactNode
   params: Promise<{ locale: string }>
