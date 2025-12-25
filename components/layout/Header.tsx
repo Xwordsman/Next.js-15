@@ -28,6 +28,8 @@ export default function Header({ locale }: HeaderProps) {
 
   const handleLocaleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLocale = e.target.value as Locale
+    // 设置 cookie 记住用户选择，next-intl 会读取这个 cookie
+    document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000`
     router.push(getLocalePath(pathname, newLocale))
   }
 

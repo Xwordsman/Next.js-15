@@ -1,7 +1,10 @@
 import createMiddleware from 'next-intl/middleware'
 import { routing } from './i18n/routing'
 
-export default createMiddleware(routing)
+export default createMiddleware(routing, {
+  // 启用语言检测（首次访问根据浏览器语言）
+  localeDetection: true
+})
 
 export const config = {
   matcher: [

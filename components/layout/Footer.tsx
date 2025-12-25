@@ -1,11 +1,27 @@
 'use client'
 
-import NextLink from 'next/link'
 import { useTranslations } from 'next-intl'
 import { Link, type Locale } from '@/i18n/routing'
 
 interface FooterProps {
   locale: Locale
+}
+
+// 设置语言 cookie 并跳转
+function LanguageLink({ href, locale, children }: { href: string; locale: Locale; children: React.ReactNode }) {
+  const handleClick = () => {
+    document.cookie = `NEXT_LOCALE=${locale};path=/;max-age=31536000`
+  }
+
+  return (
+    <a 
+      href={href} 
+      onClick={handleClick}
+      className="text-gray-300 hover:text-white transition-colors"
+    >
+      {children}
+    </a>
+  )
 }
 
 export default function Footer({ locale }: FooterProps) {
@@ -26,14 +42,14 @@ export default function Footer({ locale }: FooterProps) {
             <h4 className="font-semibold mb-4">{t('common.language')}</h4>
             <ul className="space-y-2">
               <li>
-                <NextLink href="/" className="text-gray-300 hover:text-white transition-colors">
+                <LanguageLink href="/" locale="en">
                   English
-                </NextLink>
+                </LanguageLink>
               </li>
               <li>
-                <NextLink href="/zh-CN" className="text-gray-300 hover:text-white transition-colors">
+                <LanguageLink href="/zh-CN" locale="zh-CN">
                   中文
-                </NextLink>
+                </LanguageLink>
               </li>
             </ul>
           </div>
