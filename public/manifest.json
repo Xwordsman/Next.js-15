@@ -1,0 +1,16 @@
+{
+  "name": "Multilingual Website",
+  "short_name": "Multilingual",
+  "description": "A modern multilingual website built with Next.js 14",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
