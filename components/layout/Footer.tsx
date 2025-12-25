@@ -1,5 +1,6 @@
 'use client'
 
+import NextLink from 'next/link'
 import { useTranslations } from 'next-intl'
 import { Link, type Locale } from '@/i18n/routing'
 
@@ -25,14 +26,14 @@ export default function Footer({ locale }: FooterProps) {
             <h4 className="font-semibold mb-4">{t('common.language')}</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" locale="en" className="text-gray-300 hover:text-white transition-colors">
+                <NextLink href="/" className="text-gray-300 hover:text-white transition-colors">
                   English
-                </Link>
+                </NextLink>
               </li>
               <li>
-                <Link href="/" locale="zh-CN" className="text-gray-300 hover:text-white transition-colors">
+                <NextLink href="/zh-CN" className="text-gray-300 hover:text-white transition-colors">
                   中文
-                </Link>
+                </NextLink>
               </li>
             </ul>
           </div>

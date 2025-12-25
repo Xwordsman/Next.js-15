@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname, type Locale } from '@/i18n/routing'
 
@@ -7,9 +8,28 @@ interface HeaderProps {
   locale: Locale
 }
 
+const localeNames: Record<Locale, string> = {
+  en: 'English',
+  'zh-CN': '中文'
+}
+
+// 构建语言切换链接，英文无前缀
+function getLocalePath(pathname: string, targetLocale: Locale): string {
+  if (targetLocale === 'en') {
+    return pathname || '/'
+  }
+  return `/${targetLocale}${pathname === '/' ? '' : pathname}`
+}
+
 export default function Header({ locale }: HeaderProps) {
   const t = useTranslations()
   const pathname = usePathname()
+  const router = useRouter()
+
+  const handleLocaleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLocale = e.target.value as Locale
+    router.push(getLocalePath(pathname, newLocale))
+  }
 
   return (
     <header className="bg-white shadow-sm border-b">
@@ -32,30 +52,17 @@ export default function Header({ locale }: HeaderProps) {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <div className="flex gap-2">
-              <Link
-                href={pathname}
-                locale="en"
-                className={`px-3 py-1 text-sm rounded-md transition-colors ${
-                  locale === 'en' 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                EN
-              </Link>
-              <Link
-                href={pathname}
-                locale="zh-CN"
-                className={`px-3 py-1 text-sm rounded-md transition-colors ${
-                  locale === 'zh-CN' 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                中文
-              </Link>
-            </div>
+            <select
+              value={locale}
+              onChange={handleLocaleChange}
+              className="bg-gray-100 border border-gray-300 rounded-md px-3 py-1.5 text-sm cursor-pointer hover:bg-gray-200 transition-colors"
+            >
+              {Object.entries(localeNames).map(([code, name]) => (
+                <option key={code} value={code}>
+                  {name}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       </div>
